@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
+:root{
+  --red:#ff0000;
+  --bordeaux:#380000;
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  text-decoration: none ;
+  transition: all .3s linear;
+  font-weight: 350;
+  border:none ;
+  outline: none ;
+ 
+}
+
+*::selection{
+  background:var(--bordeaux);
+  color:rgb(253, 249, 249);
+}
+
+body{
+  overflow-x: hidden;
+}
+
+html{
+  font-size: 60%;
+  overflow-x: hidden;
+}
+
+section{
+  overflow: hidden;
+}
+
+.button{
+  height:3.5rem;
+  width: 15rem;
+  background:var(--red);
+  color:rgb(255, 251, 251);
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  border-radius: .5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin:1rem 0;
+}
+.button:hover:before{
+  top: 0%;
+}
+
+.button::before{
+  content: '';
+  position: absolute;
+  top: -100%; left: 0;
+  height:100%;
+  width: 100%;
+  background-color: var(--bordeaux);
+  z-index: -1;
+  transition: .2s linear;
+}
+
+
+
+.button:hover{
+  box-shadow: .1rem .5rem var(--red),
+              0 .3rem .5rem rgba(10, 10, 10, 0.3);
+}
+
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  padding:1rem;
+  padding-top: 8rem;
+  color:var(--bordeaux);
+}
+
+.heading span{
+  color:var(--red);
+}
+
+header{
+  width:100%;
+  position: fixed;
+  top:0; left: 0;
+  padding:2rem 1rem;
+  z-index: 1000;
+}
+
+.header-active{
+  background:#fff;
+  box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+  padding: .5rem 1rem;
+}
+
+header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a{
+  color:var(--bordeaux);
+}
+
+header a:hover{
+  color:var(--red);
+}
+
+header .container .logo{
+  font-size: 3rem;
+}
+
+header .container .logo span{
+  color:var(--red);
+}
+
+header .nav ul{
+  margin:0; padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+header .nav ul li{
+  margin: 0 1rem;
+}
+
+header .nav ul li a {
+  font-size: 2rem;
+}
+
+header .fa-bars{
+  font-size: 3.5rem;
+  color:var(--red);
+  cursor: pointer;
+  display: none;
+}
+
+.home .content h1{
+  font-size: 5rem;
+  color:var(--bordeaux);
+}
+
+.home .content h1 span {
+  color:var(--red);
+}
+
+.home .content h3{
+  font-size: 4rem;
+  color:var(--bordeaux);
+}
+
+.about{
+  background:#eee;
+}
+
+.about .content .box {
+  margin:3rem 0;
+}
+
+.about .content .box h3 {
+  font-size: 2.5rem;
+  color:var(--bordeaux);
+}
+
+.about .content .box h3 i {
+  padding: 0 1rem;
+  color:var(--red);
+}
+
+.about .content .box p {
+  font-size: 1.5rem;
+  padding-left: 6rem;
+  color:rgb(114, 112, 112);
+}
+
+.gallery{
+  min-height: 100vh;
+}
+
+.gallery .box-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 3rem;
+}
+
+.gallery .box-container .box{
+  width:30rem;
+  height:20rem;
+  margin:.3rem;
+  overflow: hidden;
+}
+
+.gallery .box-container .box:hover img{
+  transform: scale(2);
+}
+
+.gallery .box-container .box img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
+.contact{
+  background:var(--bordeaux);
+}
+
+.contact .heading{
+  color:#fff;
+}
+
+.footer{
+  background:var(--bordeaux);
+}
+
+
+.footer .footer1{
+  padding:1.3rem
+}
+
+
+.footer .footer1:nth-child(1) a span{
+  color:var(--red);
+}
+
+.footer h3{
+  color:#fff;
+  font-size: 3rem;
+}
+
+
+.footer .end{
+ 
+  padding:2rem 0;
+  padding-bottom: 4rem;
+  border-top: .1rem solid #ccc;
+}
+
+
+header .fa-times{
+  transform: rotate(135deg);
+}
+
+
+@media (max-width:750px){
+
+  html{
+    font-size: 55%;
+  }
+  header .nav{
+    position: fixed;
+    top:-100rem; left:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 100vh rgba(8, 0, 0, 0.3);
+    border-radius: .5rem;
+    border:.3rem solid var(--red) !important;
+    background:#fff;
+    width: 95%;
+    opacity: 0;
+  }
+
+  header .fa-bars{
+    display: block;
+  }
+
+  header .nav{
+    position: fixed;
+    top:-100rem; left:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 100vh rgba(8, 0, 0, 0.3);
+    border-radius: .5rem;
+    border:.3rem solid var(--red) !important;
+    background:#fff;
+    width: 95%;
+    opacity: 0;
+  }
+
+  header .nav ul{
+    width: 100%;
+    flex-flow: column;
+    padding:2rem 0;
+  }
+
+  header ul .nav  li{
+    margin:1rem 0;
+    text-align: center;
+    width: 100%;
+    
+  }
+
+  header a ul.nav li {
+    font-size: 3rem;
+    display: block;
+  }
+
+  header .nav-toggle{
+    opacity: 20;
+    top:60%;
+   
+  }
+
+
+}
