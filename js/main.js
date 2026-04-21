@@ -2,6 +2,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
 const navLinks = document.querySelectorAll('#site-nav a');
 const yearEl = document.querySelector('#year');
+const MOBILE_BREAKPOINT = 760;
 let resizeTimeout;
 
 if (yearEl) {
@@ -25,7 +26,7 @@ if (menuToggle && nav) {
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
-      if (window.innerWidth >= 760) {
+      if (window.innerWidth >= MOBILE_BREAKPOINT) {
         menuToggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('open');
       }
