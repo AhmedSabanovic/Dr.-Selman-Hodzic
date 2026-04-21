@@ -10,6 +10,8 @@
   --accent: #ef4444;
   --ring: #fda4af;
   --shadow: 0 14px 34px rgba(127, 29, 29, 0.16);
+  --hero-image-max-width: 520px;
+  --hero-image-mobile-max-width: 360px;
   --radius: 1rem;
 }
 
@@ -316,7 +318,7 @@ button:focus-visible {
 }
 
 .hero-image-wrap img {
-  width: min(100%, 520px);
+  width: min(100%, var(--hero-image-max-width));
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
@@ -415,7 +417,7 @@ button:focus-visible {
   }
 
   .hero-image-wrap img {
-    width: min(90vw, 360px);
+    width: min(90vw, var(--hero-image-mobile-max-width));
   }
 
   .section {
@@ -477,7 +479,7 @@ button:focus-visible {
   .card,
   .contact-card,
   .gallery-grid img {
-    transition: none !important;
-    transform: none !important;
+    transition: none;
+    transform: none;
   }
 }
