@@ -2,6 +2,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
 const navLinks = document.querySelectorAll('#site-nav a');
 const yearEl = document.querySelector('#year');
+const revealTargets = document.querySelectorAll('.card, .contact-card, .gallery-grid img, .about-grid img');
 const MOBILE_BREAKPOINT = 760;
 const RESIZE_DEBOUNCE_MS = 120;
 let resizeTimeout;
@@ -33,4 +34,28 @@ if (menuToggle && nav) {
       }
     }, RESIZE_DEBOUNCE_MS);
   });
+}
+
+if (revealTargets.length > 0) {
+  revealTargets.forEach((element) => element.classList.add('reveal'));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealTargets.forEach((element) => element.classList.add('is-visible'));
+  } else {
+    // Lightweight scroll-reveal animation that does not affect layout.
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      // Start reveal when ~18% is visible and slightly before viewport bottom.
+      threshold: 0.18,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
 }
