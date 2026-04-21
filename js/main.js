@@ -51,6 +51,7 @@ if (revealTargets.length > 0) {
         }
       });
     }, {
+      // Start reveal when ~18% is visible and slightly before viewport bottom.
       threshold: 0.18,
       rootMargin: '0px 0px -8% 0px'
     });
