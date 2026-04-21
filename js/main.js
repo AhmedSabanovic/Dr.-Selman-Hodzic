@@ -3,6 +3,7 @@ const nav = document.querySelector('#site-nav');
 const navLinks = document.querySelectorAll('#site-nav a');
 const yearEl = document.querySelector('#year');
 const MOBILE_BREAKPOINT = 760;
+const RESIZE_DEBOUNCE_MS = 120;
 let resizeTimeout;
 
 if (yearEl) {
@@ -30,6 +31,6 @@ if (menuToggle && nav) {
         menuToggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('open');
       }
-    }, 120);
+    }, RESIZE_DEBOUNCE_MS);
   });
 }
