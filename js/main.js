@@ -2,14 +2,13 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
 const navLinks = document.querySelectorAll('#site-nav a');
 const yearEl = document.querySelector('#year');
+let resizeTimeout;
 
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
 }
 
 if (menuToggle && nav) {
-  let resizeTimeout;
-
   menuToggle.addEventListener('click', () => {
     const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!expanded));
@@ -25,7 +24,7 @@ if (menuToggle && nav) {
 
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
-    resizeTimeout = window.setTimeout(() => {
+    resizeTimeout = setTimeout(() => {
       if (window.innerWidth >= 760) {
         menuToggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('open');
